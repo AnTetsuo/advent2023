@@ -3,14 +3,13 @@ import os
 
 
 def filter_numbers(characters):
-    """characters: string[]
+    """characters: string
     responsabilities:
       check which character in
       the characters list
       is a number,
       and return it
     filtering: number[]"""
-    characters = list(characters)
     filtering = [char for char in characters if char.isnumeric()]
 
     return filtering
