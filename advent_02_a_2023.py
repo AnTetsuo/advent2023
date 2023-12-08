@@ -38,8 +38,10 @@ with open(input_file, encoding="utf-8") as i_file:
         game_id, pulls = analyze_game(line)
         checks = []
         for pull in pulls:
-            validate = validate_pull(pull)
-            checks.append(any(validate))
+            validate = any(validate_pull(pull))
+            checks.append(validate)
+            if validate:
+                break
         if any(checks):
             continue
         else:
