@@ -1,5 +1,4 @@
 import os
-from functools import reduce
 
 day_06_input = "/inputs/06_input.txt"
 input_path = os.getcwd()
@@ -26,11 +25,9 @@ def min_max_speed(time, distance):
 
 with open(input_file, encoding="utf-8") as i_file:
     raw_time, raw_distance = i_file.readlines()
-    time = [int(x) for x in raw_time.split()[1:]]
-    distance = [int(x) for x in raw_distance.split()[1:]]
-    min_max_speed = [min_max_speed(x, distance[ind]) for
-                     ind, x in enumerate(time)]
-    possible_records = [len(range(x[0], x[1] + 1)) for x in min_max_speed]
-    product = reduce(lambda x, y: x * y, possible_records, 1)
-    print(product)
+    time = int(''.join([x for x in raw_time.split()[1:]]))
+    distance = int(''.join([x for x in raw_distance.split()[1:]]))
+    min_max_speed = min_max_speed(time, distance)
+    records = len(range(min_max_speed[0], min_max_speed[1] + 1))
+    print(records)
     i_file.close()
