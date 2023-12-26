@@ -31,7 +31,7 @@ def aggregate_diff(diff_hist):
     return next_ele
 
 
-day_09_input = "/inputs/09_test.txt"
+day_09_input = "/inputs/09_input.txt"
 input_path = os.getcwd()
 input_file = input_path + str(day_09_input)
 
